@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phiếu Khảo Sát – Phòng Vệ Thương Mại | Bộ Công Thương</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:    #c0392b;
+    --red2:   #e74c3c;
+    --gold:   #d4a017;
+    --navy:   #0d1b3e;
+    --navy2:  #1a2f5e;
+    --bg:     #f5f3ee;
+    --white:  #ffffff;
+    --gray50: #f9f8f6;
+    --gray100:#ede9e1;
+    --gray300:#b8b0a0;
+    --gray600:#5c5347;
+    --gray900:#1e1a14;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(13,27,62,.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--bg);
+    color: var(--gray900);
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+
+  /* ── HERO HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #22376e 100%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 85% 50%, rgba(192,57,43,.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(212,160,23,.10) 0%, transparent 60%);
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .emblem {
+    width: 80px; height: 80px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 6px rgba(212,160,23,.25);
+  }
+  .hero-text { flex: 1; }
+  .hero-supertitle {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.65);
+    line-height: 1.6;
+  }
+
+  /* ── INTRO CARD ── */
+  .intro-card {
+    max-width: 860px;
+    margin: 32px auto 0;
+    padding: 0 16px;
+  }
+  .intro-card > div {
+    background: var(--white);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--gray600);
+    box-shadow: var(--shadow);
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    max-width: 860px;
+    margin: 20px auto 0;
+    padding: 0 16px;
+  }
+  .progress-bar-bg {
+    height: 6px;
+    background: var(--gray100);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+    border-radius: 99px;
+    width: 0%;
+    transition: width .4s ease;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gray300);
+    margin-top: 6px;
+  }
+
+  /* ── SECTIONS ── */
+  .form-wrap {
+    max-width: 860px;
+    margin: 24px auto 0;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .section-block {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy2) 100%);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-icon {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .section-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ── QUESTION ── */
+  .q-wrap { display: flex; flex-direction: column; gap: 8px; }
+  .q-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray900);
+    line-height: 1.5;
+  }
+  .q-label .q-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .q-hint {
+    font-size: 12px;
+    color: var(--gray300);
+    font-style: italic;
+    margin-top: -4px;
+  }
+  .q-required { color: var(--red2); margin-left: 3px; }
+
+  /* ── INPUT ── */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--gray100);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--gray900);
+    background: var(--gray50);
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(192,57,43,.12);
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media(max-width:560px) { .input-row { grid-template-columns: 1fr; } }
+
+  /* ── RADIO / CHECKBOX ── */
+  .options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .opt-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--gray100);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+    user-select: none;
+  }
+  .opt-item:hover { background: #fdf5f4; border-color: var(--red2); }
+  .opt-item input { display: none; }
+  .opt-item.selected { background: #fdf5f4; border-color: var(--red); }
+
+  .custom-dot {
+    width: 18px; height: 18px;
+    border: 2px solid var(--gray300);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: border-color .15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .opt-item.selected .custom-dot {
+    border-color: var(--red);
+    background: var(--red);
+  }
+  .custom-dot::after {
+    content: '';
+    width: 6px; height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .15s;
+  }
+  .opt-item.selected .custom-dot::after { opacity: 1; }
+
+  .custom-check {
+    width: 18px; height: 18px;
+    border: 2px solid var(--gray300);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: border-color .15s, background .15s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .opt-item.selected .custom-check {
+    border-color: var(--red);
+    background: var(--red);
+  }
+  .custom-check::after {
+    content: '✓';
+    color: #fff;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity .15s;
+  }
+  .opt-item.selected .custom-check::after { opacity: 1; }
+
+  .opt-text { font-size: 13.5px; line-height: 1.45; }
+
+  /* other input inline */
+  .other-input-wrap { display: none; margin-top: 8px; }
+  .other-input-wrap.show { display: block; }
+
+  /* ── CONDITIONAL BLOCK ── */
+  .conditional-block {
+    background: var(--gray50);
+    border: 1.5px dashed var(--gray100);
+    border-radius: 8px;
+    padding: 16px;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .conditional-block.show { display: flex; }
+  .conditional-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--gray300);
+    margin-bottom: -6px;
+  }
+
+  /* ── SUBMIT SECTION ── */
+  .submit-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .submit-note {
+    font-size: 13px;
+    color: var(--gray600);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--red) 0%, #a93226 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 99px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(192,57,43,.35);
+    transition: transform .15s, box-shadow .15s;
+    letter-spacing: .03em;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(192,57,43,.45);
+  }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled { opacity: .7; cursor: not-allowed; transform: none; box-shadow: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { display: inline-block; animation: spin 1s linear infinite; }
+
+  /* ── SUCCESS SCREEN ── */
+  #success-screen {
+    display: none;
+    max-width: 860px;
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+  #success-screen > div {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 60px 32px;
+    text-align: center;
+  }
+  .success-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: pop .4s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes pop { from { transform: scale(0); opacity:0; } to { transform: scale(1); opacity:1; } }
+  .success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .success-msg { font-size: 15px; color: var(--gray600); line-height: 1.7; }
+
+  /* ── STICKY FOOTER ── */
+  .sticky-footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--gray100);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gray300);
+    z-index: 100;
+  }
+  .footer-logo { font-weight: 700; color: var(--navy); }
+
+  /* validation */
+  .q-wrap.error .opt-item:first-child,
+  .q-wrap.error input[type="text"],
+  .q-wrap.error textarea {
+    border-color: var(--red2);
+  }
+  .err-msg { font-size: 12px; color: var(--red2); display: none; }
+  .q-wrap.error .err-msg { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="emblem">🏛️</div>
+    <div class="hero-text">
+      <div class="hero-supertitle">Bộ Công Thương · Cục Phòng Vệ Thương Mại</div>
+      <h1 class="hero-title">Phiếu Khảo Sát Doanh Nghiệp<br>Thực Tiễn Ứng Phó Với Các Vụ Việc Chống Bán Phá Giá</h1>
+      <p class="hero-sub">Kết quả khảo sát phục vụ mục đích nghiên cứu và được bảo mật hoàn toàn</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── INTRO ── -->
+<div class="intro-card">
+  <div>
+    Cục Phòng vệ thương mại – Bộ Công Thương trân trọng cảm ơn Ông/Bà và Doanh nghiệp đã dành thời gian tham gia trả lời phiếu khảo sát. Ý kiến của Ông/Bà sẽ là thông tin rất có giá trị để đánh giá thực tiễn năng lực ứng phó và đề xuất giải pháp đối với các vụ việc chống bán phá giá tại thị trường Hoa Kỳ. <strong>Tất cả thông tin cung cấp sẽ được bảo mật và chỉ phục vụ mục đích nghiên cứu.</strong>
+  </div>
+</div>
+
+<!-- ── PROGRESS ── -->
+<div class="progress-wrap">
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressText">Chưa bắt đầu</span><span id="progressPct">0%</span></div>
+</div>
+
+<!-- ── FORM ── -->
+<form id="mainForm" novalidate>
+<div class="form-wrap" id="formContent">
+
+  <!-- ═══ SECTION A: THÔNG TIN CHUNG ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div class="section-title">Phần A · Thông Tin Chung Doanh Nghiệp</div>
+    </div>
+    <div class="section-body">
+
+      <div class="input-row">
+        <div class="q-wrap">
+          <label class="q-label">Tên doanh nghiệp <span class="q-required">*</span></label>
+          <input type="text" name="ten_dn" placeholder="Nhập tên doanh nghiệp..." required>
+        </div>
+        <div class="q-wrap">
+          <label class="q-label">Địa chỉ doanh nghiệp</label>
+          <input type="text" name="dia_chi" placeholder="Địa chỉ...">
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="q-wrap">
+          <label class="q-label">Lĩnh vực sản xuất – kinh doanh</label>
+          <input type="text" name="linh_vuc" placeholder="Ví dụ: Dệt may, Gỗ...">
+        </div>
+        <div class="q-wrap">
+          <label class="q-label">Mặt hàng xuất khẩu chủ lực</label>
+          <input type="text" name="mat_hang" placeholder="Ví dụ: Tôm, Tủ gỗ...">
+        </div>
+      </div>
+
+      <div class="q-wrap">
+        <label class="q-label">Thị trường xuất khẩu chính</label>
+        <input type="text" name="thi_truong" placeholder="Ví dụ: Hoa Kỳ, EU, Nhật Bản...">
+      </div>
+
+      <div class="input-row">
+        <div class="q-wrap">
+          <label class="q-label">Người trả lời khảo sát <span class="q-required">*</span></label>
+          <input type="text" name="nguoi_tl" placeholder="Họ và tên..." required>
+        </div>
+        <div class="q-wrap">
+          <label class="q-label">Chức danh</label>
+          <input type="text" name="chuc_danh" placeholder="Ví dụ: Giám đốc, Trưởng phòng...">
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="q-wrap">
+          <label class="q-label">Điện thoại di động</label>
+          <input type="tel" name="dien_thoai" placeholder="0xxx xxx xxx">
+        </div>
+        <div class="q-wrap">
+          <label class="q-label">Email</label>
+          <input type="email" name="email" placeholder="email@company.com">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SECTION B: THÔNG TIN PHÂN LOẠI ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">🏢</div>
+      <div class="section-title">Phần B · Phân Loại Doanh Nghiệp</div>
+    </div>
+    <div class="section-body">
+
+      <!-- Q1 -->
+      <div class="q-wrap" data-q="q1">
+        <div class="q-label"><span class="q-num">1</span>Loại hình doanh nghiệp <span class="q-required">*</span></div>
+        <p class="q-hint">Chọn một đáp án</p>
+        <div class="options-list" id="q1">
+          <label class="opt-item" data-type="radio" data-name="loai_hinh">
+            <input type="radio" name="loai_hinh" value="Công ty cổ phần">
+            <span class="custom-dot"></span><span class="opt-text">Công ty cổ phần</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="loai_hinh">
+            <input type="radio" name="loai_hinh" value="Công ty TNHH một thành viên">
+            <span class="custom-dot"></span><span class="opt-text">Công ty TNHH một thành viên</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="loai_hinh">
+            <input type="radio" name="loai_hinh" value="Công ty TNHH hai thành viên trở lên">
+            <span class="custom-dot"></span><span class="opt-text">Công ty TNHH hai thành viên trở lên</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="loai_hinh">
+            <input type="radio" name="loai_hinh" value="Công ty hợp danh">
+            <span class="custom-dot"></span><span class="opt-text">Công ty hợp danh</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="loai_hinh">
+            <input type="radio" name="loai_hinh" value="Doanh nghiệp tư nhân">
+            <span class="custom-dot"></span><span class="opt-text">Doanh nghiệp tư nhân</span>
+          </label>
+        </div>
+        <div class="err-msg">Vui lòng chọn loại hình doanh nghiệp</div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-wrap" data-q="q2">
+        <div class="q-label"><span class="q-num">2</span>Nguồn vốn chủ sở hữu của doanh nghiệp</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-list" id="q2">
+          <label class="opt-item" data-type="checkbox" data-name="von_chu_so_huu">
+            <input type="checkbox" name="von_chu_so_huu" value="Vốn nhà nước">
+            <span class="custom-check"></span><span class="opt-text">Vốn nhà nước</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="von_chu_so_huu">
+            <input type="checkbox" name="von_chu_so_huu" value="Vốn nhà đầu tư trong nước">
+            <span class="custom-check"></span><span class="opt-text">Vốn nhà đầu tư trong nước</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="von_chu_so_huu">
+            <input type="checkbox" name="von_chu_so_huu" value="Vốn nhà đầu tư nước ngoài">
+            <span class="custom-check"></span><span class="opt-text">Vốn nhà đầu tư nước ngoài</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-wrap" data-q="q3">
+        <div class="q-label"><span class="q-num">3</span>Ngành nghề kinh doanh của doanh nghiệp</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-grid" id="q3">
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Nông lâm nghiệp">
+            <span class="custom-check"></span><span class="opt-text">Nông lâm nghiệp</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Thủy sản">
+            <span class="custom-check"></span><span class="opt-text">Thủy sản</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Sản xuất kim loại và sản phẩm kim loại">
+            <span class="custom-check"></span><span class="opt-text">Sản xuất kim loại và sản phẩm kim loại</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Dệt may – Da giày">
+            <span class="custom-check"></span><span class="opt-text">Dệt may – Da giày</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Khai khoáng">
+            <span class="custom-check"></span><span class="opt-text">Khai khoáng</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Chế biến thực phẩm và đồ uống">
+            <span class="custom-check"></span><span class="opt-text">Chế biến thực phẩm và đồ uống</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Hóa chất - Phân bón">
+            <span class="custom-check"></span><span class="opt-text">Hóa chất – Phân bón</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Cao su - Chất dẻo">
+            <span class="custom-check"></span><span class="opt-text">Cao su – Chất dẻo</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Chế biến gỗ và sản phẩm từ gỗ">
+            <span class="custom-check"></span><span class="opt-text">Chế biến gỗ và sản phẩm từ gỗ</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Cơ khí - Máy móc">
+            <span class="custom-check"></span><span class="opt-text">Cơ khí – Máy móc</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Vật liệu xây dựng">
+            <span class="custom-check"></span><span class="opt-text">Vật liệu xây dựng</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Kinh doanh xuất nhập khẩu (không SX)">
+            <span class="custom-check"></span><span class="opt-text">Kinh doanh XNK (không SX)</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="nganh_nghe">
+            <input type="checkbox" name="nganh_nghe" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q3_other_wrap">
+          <input type="text" name="nganh_nghe_khac" placeholder="Vui lòng ghi rõ ngành nghề...">
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-wrap" data-q="q4">
+        <div class="q-label"><span class="q-num">4</span>Quy mô doanh nghiệp <span class="q-required">*</span></div>
+        <p class="q-hint">Chọn một đáp án</p>
+        <div class="options-list" id="q4">
+          <label class="opt-item" data-type="radio" data-name="quy_mo">
+            <input type="radio" name="quy_mo" value="Nhỏ">
+            <span class="custom-dot"></span>
+            <span class="opt-text"><strong>Doanh nghiệp nhỏ</strong> – lao động ≤ 100 người, doanh thu ≤ 50 tỷ đồng hoặc vốn ≤ 20 tỷ đồng</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="quy_mo">
+            <input type="radio" name="quy_mo" value="Vừa">
+            <span class="custom-dot"></span>
+            <span class="opt-text"><strong>Doanh nghiệp vừa</strong> – lao động ≤ 200 người, doanh thu ≤ 200 tỷ đồng hoặc vốn ≤ 100 tỷ đồng</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="quy_mo">
+            <input type="radio" name="quy_mo" value="Lớn">
+            <span class="custom-dot"></span>
+            <span class="opt-text"><strong>Doanh nghiệp lớn</strong> – lao động &gt; 200 người, doanh thu &gt; 200 tỷ đồng và vốn &gt; 100 tỷ đồng</span>
+          </label>
+        </div>
+        <div class="err-msg">Vui lòng chọn quy mô doanh nghiệp</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SECTION C: KINH NGHIỆM ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <div class="section-title">Phần C · Kinh Nghiệm Với Vụ Việc CBPG</div>
+    </div>
+    <div class="section-body">
+
+      <!-- Q5 -->
+      <div class="q-wrap" data-q="q5">
+        <div class="q-label"><span class="q-num">5</span>Doanh nghiệp có từng bị điều tra hoặc liên quan đến vụ việc chống bán phá giá của Hoa Kỳ chưa? <span class="q-required">*</span></div>
+        <div class="options-list" id="q5">
+          <label class="opt-item" data-type="radio" data-name="tung_dieu_tra" data-show="q5_detail">
+            <input type="radio" name="tung_dieu_tra" value="Có">
+            <span class="custom-dot"></span><span class="opt-text">Có</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="tung_dieu_tra" data-hide="q5_detail">
+            <input type="radio" name="tung_dieu_tra" value="Không">
+            <span class="custom-dot"></span><span class="opt-text">Không</span>
+          </label>
+        </div>
+        <div class="conditional-block" id="q5_detail">
+          <div class="conditional-label">Nếu có, vui lòng cung cấp:</div>
+          <div class="q-wrap">
+            <label class="q-label">Thị trường điều tra</label>
+            <input type="text" name="thi_truong_dt" placeholder="Ví dụ: Hoa Kỳ">
+          </div>
+          <div class="q-wrap">
+            <label class="q-label">Sản phẩm bị điều tra</label>
+            <input type="text" name="san_pham_dt" placeholder="Ví dụ: Tôm đông lạnh">
+          </div>
+          <div class="q-wrap">
+            <label class="q-label">Thời gian diễn ra vụ việc</label>
+            <input type="text" name="thoi_gian_dt" placeholder="Ví dụ: 2020–2022">
+          </div>
+        </div>
+        <div class="err-msg">Vui lòng chọn một đáp án</div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-wrap" data-q="q6">
+        <div class="q-label"><span class="q-num">6</span>Kết quả vụ việc (nếu có)</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-list" id="q6">
+          <label class="opt-item" data-type="checkbox" data-name="ket_qua">
+            <input type="checkbox" name="ket_qua" value="Bị áp thuế">
+            <span class="custom-check"></span><span class="opt-text">Bị áp thuế</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="ket_qua">
+            <input type="checkbox" name="ket_qua" value="Không bị áp thuế">
+            <span class="custom-check"></span><span class="opt-text">Không bị áp thuế</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="ket_qua">
+            <input type="checkbox" name="ket_qua" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q6_other_wrap">
+          <input type="text" name="ket_qua_khac" placeholder="Ghi rõ kết quả khác...">
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-wrap" data-q="q7">
+        <div class="q-label"><span class="q-num">7</span>Mức độ ảnh hưởng của vụ việc đến hoạt động kinh doanh (nếu có)</div>
+        <div class="options-list" id="q7">
+          <label class="opt-item" data-type="radio" data-name="anh_huong">
+            <input type="radio" name="anh_huong" value="Rất lớn">
+            <span class="custom-dot"></span><span class="opt-text">Rất lớn</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="anh_huong">
+            <input type="radio" name="anh_huong" value="Lớn">
+            <span class="custom-dot"></span><span class="opt-text">Lớn</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="anh_huong">
+            <input type="radio" name="anh_huong" value="Trung bình">
+            <span class="custom-dot"></span><span class="opt-text">Trung bình</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="anh_huong">
+            <input type="radio" name="anh_huong" value="Ít">
+            <span class="custom-dot"></span><span class="opt-text">Ít</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="anh_huong">
+            <input type="radio" name="anh_huong" value="Không đáng kể">
+            <span class="custom-dot"></span><span class="opt-text">Không đáng kể</span>
+          </label>
+        </div>
+        <div class="q-wrap" style="margin-top:4px">
+          <textarea name="anh_huong_dien_giai" placeholder="Diễn giải thêm (nếu có)..."></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SECTION D: KIẾN THỨC PHÁP LUẬT ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">📚</div>
+      <div class="section-title">Phần D · Kiến Thức Pháp Luật & Năng Lực Ứng Phó</div>
+    </div>
+    <div class="section-body">
+
+      <!-- Q8 -->
+      <div class="q-wrap" data-q="q8">
+        <div class="q-label"><span class="q-num">8</span>Ông/Bà có biết đến các văn bản pháp luật về các biện pháp phòng vệ thương mại của Việt Nam không? <span class="q-required">*</span></div>
+        <div class="options-list" id="q8">
+          <label class="opt-item" data-type="radio" data-name="biet_vb_pl">
+            <input type="radio" name="biet_vb_pl" value="Có">
+            <span class="custom-dot"></span><span class="opt-text">Có</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="biet_vb_pl">
+            <input type="radio" name="biet_vb_pl" value="Không">
+            <span class="custom-dot"></span><span class="opt-text">Không</span>
+          </label>
+        </div>
+        <div class="err-msg">Vui lòng chọn một đáp án</div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="q-wrap" data-q="q9">
+        <div class="q-label"><span class="q-num">9</span>Ông/Bà biết các biện pháp phòng vệ thương mại được quy định trong văn bản nào?</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-list" id="q9">
+          <label class="opt-item" data-type="checkbox" data-name="vb_qppl">
+            <input type="checkbox" name="vb_qppl" value="Các Pháp lệnh về chống bán phá giá, chống trợ cấp, tự vệ">
+            <span class="custom-check"></span><span class="opt-text">Các Pháp lệnh về chống bán phá giá, chống trợ cấp, tự vệ</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="vb_qppl">
+            <input type="checkbox" name="vb_qppl" value="Luật Quản lý ngoại thương">
+            <span class="custom-check"></span><span class="opt-text">Luật Quản lý ngoại thương</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="vb_qppl">
+            <input type="checkbox" name="vb_qppl" value="Văn bản khác">
+            <span class="custom-check"></span><span class="opt-text">Các văn bản quy phạm pháp luật hướng dẫn khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q9_other_wrap">
+          <input type="text" name="vb_qppl_khac" placeholder="Vui lòng ghi rõ văn bản...">
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="q-wrap" data-q="q10">
+        <div class="q-label"><span class="q-num">10</span>Theo Ông/Bà, cơ quan nào là cơ quan quản lý nhà nước về biện pháp phòng vệ thương mại của Việt Nam?</div>
+        <div class="options-list" id="q10">
+          <label class="opt-item" data-type="radio" data-name="co_quan_qlnn">
+            <input type="radio" name="co_quan_qlnn" value="Cục Phòng vệ thương mại - Bộ Công Thương">
+            <span class="custom-dot"></span><span class="opt-text">Cục Phòng vệ thương mại – Bộ Công Thương</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="co_quan_qlnn">
+            <input type="radio" name="co_quan_qlnn" value="Cục Quản lý nợ và Kinh tế đối ngoại - Bộ Tài chính">
+            <span class="custom-dot"></span><span class="opt-text">Cục Quản lý nợ và Kinh tế đối ngoại – Bộ Tài chính</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="co_quan_qlnn">
+            <input type="radio" name="co_quan_qlnn" value="Ủy ban nhân dân cấp tỉnh/thành phố">
+            <span class="custom-dot"></span><span class="opt-text">Ủy ban nhân dân cấp tỉnh/thành phố trực thuộc Trung ương</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="radio" data-name="co_quan_qlnn">
+            <input type="radio" name="co_quan_qlnn" value="Khác">
+            <span class="custom-dot"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q10_other_wrap">
+          <input type="text" name="co_quan_qlnn_khac" placeholder="Ghi rõ cơ quan...">
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="q-wrap" data-q="q11">
+        <div class="q-label"><span class="q-num">11</span>Theo Ông/Bà, biện pháp phòng vệ thương mại bao gồm những biện pháp gì?</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-grid" id="q11">
+          <label class="opt-item" data-type="checkbox" data-name="bp_pvtm">
+            <input type="checkbox" name="bp_pvtm" value="Biện pháp chống bán phá giá">
+            <span class="custom-check"></span><span class="opt-text">Biện pháp chống bán phá giá</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="bp_pvtm">
+            <input type="checkbox" name="bp_pvtm" value="Biện pháp chống trợ cấp">
+            <span class="custom-check"></span><span class="opt-text">Biện pháp chống trợ cấp</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="bp_pvtm">
+            <input type="checkbox" name="bp_pvtm" value="Biện pháp tự vệ">
+            <span class="custom-check"></span><span class="opt-text">Biện pháp tự vệ</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="bp_pvtm">
+            <input type="checkbox" name="bp_pvtm" value="Biện pháp chống buôn lậu">
+            <span class="custom-check"></span><span class="opt-text">Biện pháp chống buôn lậu</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="bp_pvtm">
+            <input type="checkbox" name="bp_pvtm" value="Biện pháp kiểm dịch động, thực vật">
+            <span class="custom-check"></span><span class="opt-text">Biện pháp kiểm dịch động, thực vật</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="bp_pvtm">
+            <input type="checkbox" name="bp_pvtm" value="Biện pháp chống lẩn tránh biện pháp phòng vệ thương mại">
+            <span class="custom-check"></span><span class="opt-text">Biện pháp chống lẩn tránh PVTM</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SECTION E: NĂNG LỰC NỘI BỘ ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">🔧</div>
+      <div class="section-title">Phần E · Năng Lực Nội Bộ & Thực Tiễn Ứng Phó</div>
+    </div>
+    <div class="section-body">
+
+      <!-- Q12 -->
+      <div class="q-wrap" data-q="q12">
+        <div class="q-label"><span class="q-num">12</span>Doanh nghiệp có bộ phận/cán bộ chuyên trách về phòng vệ thương mại không?</div>
+        <div class="options-list" id="q12">
+          <label class="opt-item" data-type="radio" data-name="bo_phan_pvtm">
+            <input type="radio" name="bo_phan_pvtm" value="Có">
+            <span class="custom-dot"></span><span class="opt-text">Có</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="bo_phan_pvtm">
+            <input type="radio" name="bo_phan_pvtm" value="Không">
+            <span class="custom-dot"></span><span class="opt-text">Không</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="q-wrap" data-q="q13">
+        <div class="q-label"><span class="q-num">13</span>Doanh nghiệp đã từng thực hiện các việc nào khi xử lý vụ việc chống bán phá giá của Hoa Kỳ?</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-list" id="q13">
+          <label class="opt-item" data-type="checkbox" data-name="xu_ly_vv">
+            <input type="checkbox" name="xu_ly_vv" value="Hợp tác/thuê luật sư tư vấn trong nước/quốc tế">
+            <span class="custom-check"></span><span class="opt-text">Hợp tác/thuê luật sư tư vấn trong nước/quốc tế</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="xu_ly_vv">
+            <input type="checkbox" name="xu_ly_vv" value="Tự soạn thảo Bản trả lời và tài liệu đính kèm">
+            <span class="custom-check"></span><span class="opt-text">Tự soạn thảo Bản trả lời và tài liệu đính kèm</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="xu_ly_vv">
+            <input type="checkbox" name="xu_ly_vv" value="Không làm gì cả">
+            <span class="custom-check"></span><span class="opt-text">Không làm gì cả</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="xu_ly_vv">
+            <input type="checkbox" name="xu_ly_vv" value="Phối hợp cùng hiệp hội ngành hàng">
+            <span class="custom-check"></span><span class="opt-text">Phối hợp cùng hiệp hội ngành hàng</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="xu_ly_vv">
+            <input type="checkbox" name="xu_ly_vv" value="Làm việc/liên hệ với Cục Phòng vệ thương mại">
+            <span class="custom-check"></span><span class="opt-text">Làm việc/liên hệ với Cục Phòng vệ thương mại</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="xu_ly_vv">
+            <input type="checkbox" name="xu_ly_vv" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q13_other_wrap">
+          <input type="text" name="xu_ly_vv_khac" placeholder="Ghi rõ...">
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="q-wrap" data-q="q14">
+        <div class="q-label"><span class="q-num">14</span>Mức độ am hiểu của doanh nghiệp về quy trình điều tra chống bán phá giá của Hoa Kỳ?</div>
+        <div class="options-list" id="q14">
+          <label class="opt-item" data-type="radio" data-name="am_hieu">
+            <input type="radio" name="am_hieu" value="Hiểu rõ">
+            <span class="custom-dot"></span><span class="opt-text">Hiểu rõ</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="am_hieu">
+            <input type="radio" name="am_hieu" value="Hiểu tương đối">
+            <span class="custom-dot"></span><span class="opt-text">Hiểu tương đối</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="am_hieu">
+            <input type="radio" name="am_hieu" value="Biết sơ lược">
+            <span class="custom-dot"></span><span class="opt-text">Biết sơ lược</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="am_hieu">
+            <input type="radio" name="am_hieu" value="Không biết rõ">
+            <span class="custom-dot"></span><span class="opt-text">Không biết rõ</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="q-wrap" data-q="q15">
+        <div class="q-label"><span class="q-num">15</span>Doanh nghiệp có thường xuyên cập nhật thông tin về các vụ việc phòng vệ thương mại của Hoa Kỳ không?</div>
+        <div class="options-list" id="q15">
+          <label class="opt-item" data-type="radio" data-name="cap_nhat">
+            <input type="radio" name="cap_nhat" value="Thường xuyên">
+            <span class="custom-dot"></span><span class="opt-text">Thường xuyên</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="cap_nhat">
+            <input type="radio" name="cap_nhat" value="Thỉnh thoảng">
+            <span class="custom-dot"></span><span class="opt-text">Thỉnh thoảng</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="cap_nhat">
+            <input type="radio" name="cap_nhat" value="Hiếm khi">
+            <span class="custom-dot"></span><span class="opt-text">Hiếm khi</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="cap_nhat">
+            <input type="radio" name="cap_nhat" value="Chưa bao giờ">
+            <span class="custom-dot"></span><span class="opt-text">Chưa bao giờ</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="q-wrap" data-q="q16">
+        <div class="q-label"><span class="q-num">16</span>Nguồn thông tin doanh nghiệp thường sử dụng để cập nhật về vụ việc chống bán phá giá</div>
+        <p class="q-hint">Chọn tối đa 2 đáp án</p>
+        <div class="options-grid" id="q16" data-max="2">
+          <label class="opt-item" data-type="checkbox" data-name="nguon_tt">
+            <input type="checkbox" name="nguon_tt" value="Cục Phòng vệ thương mại">
+            <span class="custom-check"></span><span class="opt-text">Cục Phòng vệ thương mại</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nguon_tt">
+            <input type="checkbox" name="nguon_tt" value="Hiệp hội ngành hàng">
+            <span class="custom-check"></span><span class="opt-text">Hiệp hội ngành hàng</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nguon_tt">
+            <input type="checkbox" name="nguon_tt" value="Luật sư tư vấn">
+            <span class="custom-check"></span><span class="opt-text">Luật sư tư vấn</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nguon_tt">
+            <input type="checkbox" name="nguon_tt" value="Báo chí">
+            <span class="custom-check"></span><span class="opt-text">Báo chí</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="nguon_tt">
+            <input type="checkbox" name="nguon_tt" value="Internet">
+            <span class="custom-check"></span><span class="opt-text">Internet</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="nguon_tt">
+            <input type="checkbox" name="nguon_tt" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q16_other_wrap">
+          <input type="text" name="nguon_tt_khac" placeholder="Ghi rõ nguồn thông tin khác...">
+        </div>
+        <div class="err-msg" id="q16_max_err">Chỉ được chọn tối đa 2 đáp án</div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="q-wrap" data-q="q17">
+        <div class="q-label"><span class="q-num">17</span>Mức độ quan tâm của doanh nghiệp đến nguy cơ bị điều tra chống bán phá giá</div>
+        <div class="options-list" id="q17">
+          <label class="opt-item" data-type="radio" data-name="quan_tam">
+            <input type="radio" name="quan_tam" value="Rất quan tâm">
+            <span class="custom-dot"></span><span class="opt-text">Rất quan tâm</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="quan_tam">
+            <input type="radio" name="quan_tam" value="Quan tâm">
+            <span class="custom-dot"></span><span class="opt-text">Quan tâm</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="quan_tam">
+            <input type="radio" name="quan_tam" value="Bình thường">
+            <span class="custom-dot"></span><span class="opt-text">Bình thường</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="quan_tam">
+            <input type="radio" name="quan_tam" value="Ít quan tâm">
+            <span class="custom-dot"></span><span class="opt-text">Ít quan tâm</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="quan_tam">
+            <input type="radio" name="quan_tam" value="Không quan tâm">
+            <span class="custom-dot"></span><span class="opt-text">Không quan tâm</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="q-wrap" data-q="q18">
+        <div class="q-label"><span class="q-num">18</span>Trong quá trình ứng phó, doanh nghiệp gặp khó khăn lớn nhất là gì?</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-grid" id="q18">
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Thiếu hiểu biết về quy định">
+            <span class="custom-check"></span><span class="opt-text">Thiếu hiểu biết về quy định</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Thiếu nhân lực chuyên môn">
+            <span class="custom-check"></span><span class="opt-text">Thiếu nhân lực chuyên môn</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Chi phí thuê luật sư cao">
+            <span class="custom-check"></span><span class="opt-text">Chi phí thuê luật sư cao</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Quy trình phức tạp, nhiều tài liệu">
+            <span class="custom-check"></span><span class="opt-text">Quy trình phức tạp, nhiều tài liệu</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Thiếu số liệu phù hợp">
+            <span class="custom-check"></span><span class="opt-text">Thiếu số liệu phù hợp</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Thời gian gấp">
+            <span class="custom-check"></span><span class="opt-text">Thời gian gấp</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Thiếu phối hợp giữa các bên">
+            <span class="custom-check"></span><span class="opt-text">Thiếu phối hợp giữa các bên</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="kho_khan">
+            <input type="checkbox" name="kho_khan" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q18_other_wrap">
+          <input type="text" name="kho_khan_khac" placeholder="Ghi rõ khó khăn khác...">
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="q-wrap" data-q="q19">
+        <div class="q-label"><span class="q-num">19</span>Doanh nghiệp đánh giá năng lực nội bộ trong việc xử lý hồ sơ và dữ liệu phục vụ điều tra?</div>
+        <div class="options-list" id="q19">
+          <label class="opt-item" data-type="radio" data-name="nang_luc_nb">
+            <input type="radio" name="nang_luc_nb" value="Tốt">
+            <span class="custom-dot"></span><span class="opt-text">Tốt</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="nang_luc_nb">
+            <input type="radio" name="nang_luc_nb" value="Trung bình">
+            <span class="custom-dot"></span><span class="opt-text">Trung bình</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="nang_luc_nb">
+            <input type="radio" name="nang_luc_nb" value="Yếu">
+            <span class="custom-dot"></span><span class="opt-text">Yếu</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SECTION F: HỖ TRỢ & ĐÀO TẠO ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <div class="section-title">Phần F · Hỗ Trợ & Đào Tạo</div>
+    </div>
+    <div class="section-body">
+
+      <!-- Q20 -->
+      <div class="q-wrap" data-q="q20">
+        <div class="q-label"><span class="q-num">20</span>Doanh nghiệp đã từng được tập huấn, hướng dẫn về ứng phó đối với các vụ việc điều tra chống bán phá giá chưa?</div>
+        <div class="options-list" id="q20">
+          <label class="opt-item" data-type="radio" data-name="tap_huan" data-show="q20_detail">
+            <input type="radio" name="tap_huan" value="Có">
+            <span class="custom-dot"></span><span class="opt-text">Có</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="tap_huan" data-hide="q20_detail">
+            <input type="radio" name="tap_huan" value="Không">
+            <span class="custom-dot"></span><span class="opt-text">Không</span>
+          </label>
+        </div>
+        <div class="conditional-block" id="q20_detail">
+          <div class="conditional-label">Nếu có:</div>
+          <div class="q-wrap">
+            <label class="q-label">Do cơ quan/tổ chức nào tổ chức?</label>
+            <input type="text" name="tap_huan_to_chuc" placeholder="Tên cơ quan/tổ chức...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q21 -->
+      <div class="q-wrap" data-q="q21">
+        <div class="q-label"><span class="q-num">21</span>Doanh nghiệp đã từng nhận được hỗ trợ từ Cục Phòng vệ thương mại hoặc hiệp hội ngành hàng trong vụ việc điều tra chống bán phá giá chưa?</div>
+        <div class="options-list" id="q21">
+          <label class="opt-item" data-type="radio" data-name="ho_tro_cu">
+            <input type="radio" name="ho_tro_cu" value="Có">
+            <span class="custom-dot"></span><span class="opt-text">Có</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="ho_tro_cu">
+            <input type="radio" name="ho_tro_cu" value="Không">
+            <span class="custom-dot"></span><span class="opt-text">Không</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="q-wrap" data-q="q22">
+        <div class="q-label"><span class="q-num">22</span>Mức độ hỗ trợ được đánh giá như thế nào?</div>
+        <div class="options-list" id="q22">
+          <label class="opt-item" data-type="radio" data-name="muc_do_ht">
+            <input type="radio" name="muc_do_ht" value="Rất hiệu quả">
+            <span class="custom-dot"></span><span class="opt-text">Rất hiệu quả</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="muc_do_ht">
+            <input type="radio" name="muc_do_ht" value="Khá hiệu quả">
+            <span class="custom-dot"></span><span class="opt-text">Khá hiệu quả</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="muc_do_ht">
+            <input type="radio" name="muc_do_ht" value="Bình thường">
+            <span class="custom-dot"></span><span class="opt-text">Bình thường</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="muc_do_ht">
+            <input type="radio" name="muc_do_ht" value="Hạn chế">
+            <span class="custom-dot"></span><span class="opt-text">Hạn chế</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="muc_do_ht">
+            <input type="radio" name="muc_do_ht" value="Không nhận được hỗ trợ">
+            <span class="custom-dot"></span><span class="opt-text">Không nhận được hỗ trợ</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Q23 -->
+      <div class="q-wrap" data-q="q23">
+        <div class="q-label"><span class="q-num">23</span>Doanh nghiệp mong muốn Cục Phòng vệ thương mại tăng cường hỗ trợ ở lĩnh vực nào?</div>
+        <p class="q-hint">Chọn tối đa 3 đáp án</p>
+        <div class="options-list" id="q23" data-max="3">
+          <label class="opt-item" data-type="checkbox" data-name="mong_muon_ht">
+            <input type="checkbox" name="mong_muon_ht" value="Cung cấp thông tin sớm về nguy cơ điều tra">
+            <span class="custom-check"></span><span class="opt-text">Cung cấp thông tin sớm về nguy cơ điều tra</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="mong_muon_ht">
+            <input type="checkbox" name="mong_muon_ht" value="Tập huấn chuyên sâu để tăng năng lực ứng phó">
+            <span class="custom-check"></span><span class="opt-text">Tập huấn chuyên sâu để tăng năng lực ứng phó</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="mong_muon_ht">
+            <input type="checkbox" name="mong_muon_ht" value="Hỗ trợ kỹ thuật, pháp lý trong quá trình điều tra">
+            <span class="custom-check"></span><span class="opt-text">Hỗ trợ kỹ thuật, pháp lý trong quá trình điều tra</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="mong_muon_ht">
+            <input type="checkbox" name="mong_muon_ht" value="Kết nối với luật sư quốc tế">
+            <span class="custom-check"></span><span class="opt-text">Kết nối với luật sư quốc tế</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="mong_muon_ht">
+            <input type="checkbox" name="mong_muon_ht" value="Hỗ trợ truyền thông, bảo vệ hình ảnh doanh nghiệp">
+            <span class="custom-check"></span><span class="opt-text">Hỗ trợ truyền thông, bảo vệ hình ảnh doanh nghiệp</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="mong_muon_ht">
+            <input type="checkbox" name="mong_muon_ht" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q23_other_wrap">
+          <input type="text" name="mong_muon_ht_khac" placeholder="Ghi rõ mong muốn khác...">
+        </div>
+        <div class="err-msg" id="q23_max_err">Chỉ được chọn tối đa 3 đáp án</div>
+      </div>
+
+      <!-- Q24 -->
+      <div class="q-wrap" data-q="q24">
+        <div class="q-label"><span class="q-num">24</span>Doanh nghiệp có nhu cầu tham gia các khóa tập huấn, đào tạo về phòng vệ thương mại không?</div>
+        <div class="options-list" id="q24">
+          <label class="opt-item" data-type="radio" data-name="nhu_cau_dao_tao">
+            <input type="radio" name="nhu_cau_dao_tao" value="Có">
+            <span class="custom-dot"></span><span class="opt-text">Có</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="nhu_cau_dao_tao">
+            <input type="radio" name="nhu_cau_dao_tao" value="Không">
+            <span class="custom-dot"></span><span class="opt-text">Không</span>
+          </label>
+          <label class="opt-item" data-type="radio" data-name="nhu_cau_dao_tao">
+            <input type="radio" name="nhu_cau_dao_tao" value="Cần xem xét thêm">
+            <span class="custom-dot"></span><span class="opt-text">Cần xem xét thêm</span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SECTION G: Ý KIẾN & ĐỀ XUẤT ═══ -->
+  <div class="section-block">
+    <div class="section-header">
+      <div class="section-icon">💡</div>
+      <div class="section-title">Phần G · Ý Kiến & Đề Xuất</div>
+    </div>
+    <div class="section-body">
+
+      <!-- Q25 -->
+      <div class="q-wrap" data-q="q25">
+        <div class="q-label"><span class="q-num">25</span>Để ứng phó với vụ kiện chống bán phá giá, doanh nghiệp cần làm gì?</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-list" id="q25">
+          <label class="opt-item" data-type="checkbox" data-name="can_lam">
+            <input type="checkbox" name="can_lam" value="Tự trả lời">
+            <span class="custom-check"></span><span class="opt-text">Tự trả lời</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="can_lam">
+            <input type="checkbox" name="can_lam" value="Thuê luật sư">
+            <span class="custom-check"></span><span class="opt-text">Thuê luật sư</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="can_lam">
+            <input type="checkbox" name="can_lam" value="Phối hợp với cơ quan nhà nước">
+            <span class="custom-check"></span><span class="opt-text">Phối hợp với cơ quan nhà nước</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="can_lam">
+            <input type="checkbox" name="can_lam" value="Khác">
+            <span class="custom-check"></span><span class="opt-text">Khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q25_other_wrap">
+          <input type="text" name="can_lam_khac" placeholder="Ghi rõ...">
+        </div>
+      </div>
+
+      <!-- Q26 -->
+      <div class="q-wrap" data-q="q26">
+        <div class="q-label"><span class="q-num">26</span>Nếu không nghĩ đến việc liên hệ cơ quan quản lý nhà nước để được hỗ trợ, lý do là gì?</div>
+        <p class="q-hint">Có thể chọn nhiều đáp án</p>
+        <div class="options-list" id="q26">
+          <label class="opt-item" data-type="checkbox" data-name="ly_do_khong_lh">
+            <input type="checkbox" name="ly_do_khong_lh" value="Không biết cơ quan quản lý nhà nước có thể hỗ trợ được gì">
+            <span class="custom-check"></span><span class="opt-text">Không biết cơ quan quản lý nhà nước có thể hỗ trợ được gì</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="ly_do_khong_lh">
+            <input type="checkbox" name="ly_do_khong_lh" value="Doanh nghiệp có đủ nguồn lực và kinh nghiệm để tự giải quyết">
+            <span class="custom-check"></span><span class="opt-text">Doanh nghiệp có đủ nguồn lực và kinh nghiệm để tự giải quyết</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="ly_do_khong_lh">
+            <input type="checkbox" name="ly_do_khong_lh" value="Phụ thuộc quyết định của tập đoàn/công ty mẹ">
+            <span class="custom-check"></span><span class="opt-text">Phụ thuộc quyết định của tập đoàn/công ty mẹ</span>
+          </label>
+          <label class="opt-item" data-type="checkbox" data-name="ly_do_khong_lh">
+            <input type="checkbox" name="ly_do_khong_lh" value="Thông tin bất lợi có thể lan truyền ra ngoài">
+            <span class="custom-check"></span><span class="opt-text">Thông tin bất lợi có thể lan truyền ra ngoài</span>
+          </label>
+          <label class="opt-item other-toggle" data-type="checkbox" data-name="ly_do_khong_lh">
+            <input type="checkbox" name="ly_do_khong_lh" value="Lý do khác">
+            <span class="custom-check"></span><span class="opt-text">Lý do khác</span>
+          </label>
+        </div>
+        <div class="other-input-wrap" id="q26_other_wrap">
+          <input type="text" name="ly_do_khac" placeholder="Ghi rõ lý do khác...">
+        </div>
+      </div>
+
+      <!-- Q27 -->
+      <div class="q-wrap" data-q="q27">
+        <div class="q-label"><span class="q-num">27</span>Doanh nghiệp đề xuất gì để nâng cao năng lực ứng phó của Việt Nam trong các vụ việc chống bán phá giá tại Hoa Kỳ?</div>
+        <textarea name="de_xuat" rows="5" placeholder="Vui lòng chia sẻ đề xuất, kiến nghị của Ông/Bà..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ SUBMIT ═══ -->
+  <div class="submit-section">
+    <p class="submit-note">✅ Vui lòng kiểm tra lại thông tin trước khi gửi.<br>Tất cả thông tin sẽ được <strong>bảo mật hoàn toàn</strong> và chỉ dùng cho mục đích nghiên cứu.</p>
+    <button type="submit" class="btn-submit">
+      <span>📨</span> Gửi phiếu khảo sát
+    </button>
+  </div>
+
+</div><!-- /form-wrap -->
+</form>
+
+<!-- ── SUCCESS SCREEN ── -->
+<div id="success-screen">
+  <div>
+    <div class="success-icon">🎉</div>
+    <div class="success-title">Cảm ơn quý doanh nghiệp!</div>
+    <p class="success-msg">Phiếu khảo sát của Ông/Bà đã được ghi nhận thành công.<br>Ý kiến đóng góp của Ông/Bà sẽ là nguồn thông tin quý giá cho công tác nghiên cứu và đề xuất giải pháp phòng vệ thương mại của Bộ Công Thương.<br><br><strong>Xin trân trọng cảm ơn!</strong></p>
+  </div>
+</div>
+
+<!-- ── STICKY FOOTER ── -->
+<div class="sticky-footer">
+  <span class="footer-logo">🏛️ Cục PVTM – Bộ Công Thương</span>
+  <span>Thông tin được bảo mật tuyệt đối</span>
+</div>
+
+<script>
+// ── OPTION TOGGLE (radio/checkbox visual) ──────────────────────────
+document.querySelectorAll('.opt-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    const inp = this.querySelector('input');
+    const name = inp.getAttribute('name');
+    const type = inp.type;
+    const container = this.closest('.options-list, .options-grid');
+    const maxAttr = container?.dataset.max ? parseInt(container.dataset.max) : null;
+
+    if (type === 'radio') {
+      document.querySelectorAll(`[data-name="${name}"]`).forEach(i => i.classList.remove('selected'));
+      this.classList.add('selected');
+      inp.checked = true;
+    } else {
+      // max limit check
+      if (!this.classList.contains('selected') && maxAttr) {
+        const checked = container.querySelectorAll('.opt-item.selected').length;
+        if (checked >= maxAttr) {
+          const errId = container.id + '_max_err';
+          const errEl = document.getElementById(errId);
+          if (errEl) { errEl.style.display = 'block'; setTimeout(() => errEl.style.display='none', 2500); }
+          return;
+        }
+      }
+      this.classList.toggle('selected');
+      inp.checked = this.classList.contains('selected');
+    }
+
+    // conditional show/hide
+    const showId = this.dataset.show;
+    const hideId = this.dataset.hide;
+    if (showId) document.getElementById(showId)?.classList.add('show');
+    if (hideId) document.getElementById(hideId)?.classList.remove('show');
+    if (type === 'radio' && !showId && !hideId) {
+      // hide all conditionals linked to same name
+      document.querySelectorAll(`[data-name="${name}"][data-show]`).forEach(el => {
+        const tid = el.dataset.show;
+        if (!el.classList.contains('selected')) document.getElementById(tid)?.classList.remove('show');
+      });
+    }
+
+    // "Khác" toggle
+    if (this.classList.contains('other-toggle')) {
+      const containerId = container.id;
+      const wrapId = containerId + '_other_wrap';
+      const wrap = document.getElementById(wrapId);
+      if (wrap) {
+        const anyOtherChecked = container.querySelectorAll('.other-toggle.selected').length > 0;
+        wrap.classList.toggle('show', anyOtherChecked);
+      }
+    }
+
+    updateProgress();
+  });
+});
+
+// ── PROGRESS ────────────────────────────────────────────────────────
+function updateProgress() {
+  const total = 27;
+  let answered = 0;
+  const names = new Set();
+  document.querySelectorAll('.opt-item.selected input, input[type="text"][required]:not([value=""]), input[type="email"][required]:not([value=""])').forEach(inp => {
+    if (inp.name) names.add(inp.name.split('[')[0]);
+  });
+  // count text inputs filled
+  document.querySelectorAll('input[type="text"][name="ten_dn"], input[type="text"][name="nguoi_tl"]').forEach(inp => {
+    if (inp.value.trim()) names.add(inp.name);
+  });
+  answered = Math.min(names.size, total);
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressText').textContent = pct === 0 ? 'Chưa bắt đầu' : pct === 100 ? 'Đã hoàn thành!' : `Đã trả lời ${answered}/${total} câu hỏi`;
+}
+document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(el => {
+  el.addEventListener('input', updateProgress);
+});
+
+// ── SUBMIT ────────────────────────────────────────────────────────
+document.getElementById('mainForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+
+  // Required: ten_dn
+  const tenDn = document.querySelector('[name="ten_dn"]');
+  if (!tenDn.value.trim()) { tenDn.style.borderColor='var(--red2)'; valid = false; tenDn.focus(); }
+  else tenDn.style.borderColor = '';
+
+  // Required: nguoi_tl
+  const nguoiTl = document.querySelector('[name="nguoi_tl"]');
+  if (!nguoiTl.value.trim()) { nguoiTl.style.borderColor='var(--red2)'; valid = false; if(valid===false && !tenDn.value.trim()) nguoiTl.focus(); }
+  else nguoiTl.style.borderColor = '';
+
+  // Required radios: loai_hinh, quy_mo, biet_vb_pl, tung_dieu_tra
+  ['loai_hinh','quy_mo','biet_vb_pl','tung_dieu_tra'].forEach(name => {
+    const checked = document.querySelector(`input[name="${name}"]:checked`);
+    // find closest q-wrap
+    const el = document.querySelector(`input[name="${name}"]`)?.closest('.q-wrap');
+    if (!checked && el) { el.classList.add('error'); valid = false; }
+    else if (el) el.classList.remove('error');
+  });
+
+  if (!valid) {
+    const firstErr = document.querySelector('.q-wrap.error, input[style*="red"]');
+    firstErr?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Collect data
+  const data = {};
+  new FormData(this).forEach((v, k) => {
+    if (data[k]) {
+      data[k] = Array.isArray(data[k]) ? [...data[k], v] : [data[k], v];
+    } else { data[k] = v; }
+  });
+  // ── 🔧 DÁN URL CỦA BẠN VÀO ĐÂY ──────────────────────────────────
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUJiZIUJ7ElDizQejgZ4QLEGrIaUncdUbYAHD6Ogi0/exec";
+  // ─────────────────────────────────────────────────────────────────
+
+  // UI: loading state
+  const btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin">⏳</span> Đang gửi...';
+
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors", // Apps Script yêu cầu no-cors
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    // no-cors trả về opaque response nên luôn vào .then()
+    document.getElementById('formContent').style.display = 'none';
+    document.querySelector('.intro-card').style.display = 'none';
+    document.querySelector('.progress-wrap').style.display = 'none';
+    document.getElementById('success-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  })
+  .catch(err => {
+    btn.disabled = false;
+    btn.innerHTML = '<span>📨</span> Gửi phiếu khảo sát';
+    alert('❌ Gửi thất bại. Vui lòng kiểm tra kết nối và thử lại.\n\nLỗi: ' + err.message);
+    console.error(err);
+  });
+});
+</script>
+</body>
+</html>
