@@ -1458,30 +1458,45 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
     return;
   }
 
-  // Collect data
+  // ── Thu thập dữ liệu từ tất cả inputs (kể cả custom radio/checkbox) ──
   const data = {};
-  new FormData(this).forEach((v, k) => {
-    if (data[k]) {
-      data[k] = Array.isArray(data[k]) ? [...data[k], v] : [data[k], v];
-    } else { data[k] = v; }
+
+  // Text inputs
+  document.querySelectorAll('#mainForm input[type="text"], #mainForm input[type="email"], #mainForm input[type="tel"], #mainForm textarea').forEach(inp => {
+    if (inp.name && inp.value.trim()) data[inp.name] = inp.value.trim();
   });
-  // ── 🔧 DÁN URL CỦA BẠN VÀO ĐÂY ──────────────────────────────────
+
+  // Radio & Checkbox (đọc từ .selected class vì custom UI)
+  const groups = {};
+  document.querySelectorAll('#mainForm .opt-item.selected input').forEach(inp => {
+    if (!inp.name) return;
+    if (!groups[inp.name]) groups[inp.name] = [];
+    groups[inp.name].push(inp.value);
+  });
+  Object.entries(groups).forEach(([k, v]) => {
+    data[k] = v.length === 1 ? v[0] : v.join(' | ');
+  });
+
+  // Log để debug
+  console.log('📋 Data sẽ gửi:', data);
+
+  // ── URL Apps Script ────────────────────────────────────────────────
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUJiZIUJ7ElDizQejgZ4QLEGrIaUncdUbYAHD6Ogi0/exec";
-  // ─────────────────────────────────────────────────────────────────
 
   // UI: loading state
   const btn = document.querySelector('.btn-submit');
   btn.disabled = true;
   btn.innerHTML = '<span class="spin">⏳</span> Đang gửi...';
 
+  // Gửi dưới dạng text/plain để vượt qua no-cors restriction
   fetch(APPS_SCRIPT_URL, {
     method: "POST",
-    mode: "no-cors", // Apps Script yêu cầu no-cors
-    headers: { "Content-Type": "application/json" },
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
     body: JSON.stringify(data)
   })
   .then(() => {
-    // no-cors trả về opaque response nên luôn vào .then()
+    console.log('✅ Đã gửi thành công!');
     document.getElementById('formContent').style.display = 'none';
     document.querySelector('.intro-card').style.display = 'none';
     document.querySelector('.progress-wrap').style.display = 'none';
@@ -1491,8 +1506,8 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
   .catch(err => {
     btn.disabled = false;
     btn.innerHTML = '<span>📨</span> Gửi phiếu khảo sát';
-    alert('❌ Gửi thất bại. Vui lòng kiểm tra kết nối và thử lại.\n\nLỗi: ' + err.message);
-    console.error(err);
+    alert('❌ Gửi thất bại. Vui lòng thử lại.\n\nLỗi: ' + err.message);
+    console.error('❌ Lỗi:', err);
   });
 });
 </script>
